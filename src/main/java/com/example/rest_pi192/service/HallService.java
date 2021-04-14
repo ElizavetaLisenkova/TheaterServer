@@ -35,4 +35,6 @@ public class HallService {
         hallRepository.deleteById(id);
     }
 
+
+
 }

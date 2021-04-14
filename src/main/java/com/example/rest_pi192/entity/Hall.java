@@ -23,4 +23,24 @@ public class Hall {
 
     @Column(name = "total_places")
     private Integer totalPlaces;
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getTotalPlaces() {
+        return totalPlaces;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTotalPlaces(Integer totalPlaces) {
+        this.totalPlaces = totalPlaces;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

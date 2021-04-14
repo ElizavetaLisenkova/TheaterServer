@@ -1,8 +1,18 @@
 CREATE TABLE IF NOT EXISTS troup
 (
-    id INT NOT NULL ,
-    actor_full_name  VARCHAR(250) NOT NULL
+    id SERIAL PRIMARY KEY ,
+    name  VARCHAR(250)
+
 );
+
+CREATE TABLE IF NOT EXISTS actor
+(
+    id SERIAL PRIMARY KEY ,
+    troup_id INT,
+    full_name  VARCHAR(250) NOT NULL,
+    FOREIGN KEY (troup_id) REFERENCES troup (id) ON DELETE SET NULL
+);
+
 
 CREATE TABLE IF NOT EXISTS hall
 (

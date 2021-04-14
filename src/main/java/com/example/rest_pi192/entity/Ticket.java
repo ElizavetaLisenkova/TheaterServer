@@ -15,10 +15,19 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "price")
     private Double price;
+
+    @Column(name = "performance_id")
     private String performanceId;
-    private String sector;
-    private Integer seat;
+
+    @Column(name = "sector_id")
+    private String sectorId;
+
+    @Column(name = "place")
+    private Integer place;
+
+    @Column(name = "availability")
     private Boolean availability;
 
 

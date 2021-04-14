@@ -6,16 +6,19 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-
-
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "troup")
 public class Troup {
+
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String actorFullName;
+    @Column(name = "name")
+    private String name;
 
 
 }
