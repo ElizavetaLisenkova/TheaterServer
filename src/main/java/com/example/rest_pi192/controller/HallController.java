@@ -1,10 +1,8 @@
 package com.example.rest_pi192.controller;
 
 
-
 import com.example.rest_pi192.entity.Hall;
 import com.example.rest_pi192.exception.HallNotFoundException;
-import com.example.rest_pi192.repository.HallRepository;
 import com.example.rest_pi192.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +18,7 @@ public class HallController {
 
     private final HallService hallService;
 
-    @Autowired
+
     public HallController(HallService hallService){
         this.hallService = hallService;
     }
@@ -52,6 +50,7 @@ public class HallController {
 
     @DeleteMapping(value = "/{id}")
     public void deleteById(@PathVariable(name = "id") Long id){
+        System.out.println("-----------------------Я ЗАШЕЛ В ДЕЛИТ-------------------------------------");
         hallService.deleteById(id);
     }
 

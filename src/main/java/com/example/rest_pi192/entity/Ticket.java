@@ -27,6 +27,46 @@ public class Ticket {
     @Column(name = "place")
     private Integer place;
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getPerformanceId() {
+        return performanceId;
+    }
+
+    public void setPerformanceId(String performanceId) {
+        this.performanceId = performanceId;
+    }
+
+    public String getSectorId() {
+        return sectorId;
+    }
+
+    public void setSectorId(String sectorId) {
+        this.sectorId = sectorId;
+    }
+
+    public Integer getPlace() {
+        return place;
+    }
+
+    public void setPlace(Integer place) {
+        this.place = place;
+    }
+
+    public Boolean getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Boolean availability) {
+        this.availability = availability;
+    }
+
     @Column(name = "availability")
     private Boolean availability;
 
