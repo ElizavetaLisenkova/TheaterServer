@@ -1,17 +1,19 @@
 package com.example.rest_pi192.entity;
 
-
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
 @Table(name = "performance")
 public class Performance {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -25,14 +27,22 @@ public class Performance {
     @Column(name = "time")
     private String time;
 
-    @Column(name = "troup_id")
-    private long troupeId;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "troup_id", referencedColumnName = "id")
+    private Troup troup;
 
-    @Column(name = "hall_id")
-    private String  hallId;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "hall_id", referencedColumnName = "id")
+    private Hall  hall;
 
     @Column(name = "status")
     private String status;
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "performance", fetch = FetchType.LAZY)
+    private Set<Ticket> tickets = new HashSet<Ticket>();
 
     public String getName() {
         return name;
@@ -58,20 +68,20 @@ public class Performance {
         this.time = time;
     }
 
-    public long getTroupeId() {
-        return troupeId;
+    public Troup getTroup() {
+        return troup;
     }
 
-    public void setTroupeId(long troupeId) {
-        this.troupeId = troupeId;
+    public void setTroup(Troup troup) {
+        this.troup = troup;
     }
 
-    public String getHallId() {
-        return hallId;
+    public Hall getHall() {
+        return hall;
     }
 
-    public void setHallId(String hallId) {
-        this.hallId = hallId;
+    public void setHall(Hall hall) {
+        this.hall = hall;
     }
 
     public String getStatus() {

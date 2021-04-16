@@ -1,11 +1,13 @@
 package com.example.rest_pi192.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -21,17 +23,32 @@ public class Sector {
     @Column(name = "name")
     private String name;
 
-
-
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "hall_id", referencedColumnName = "id")
     private Hall hall;
 
-//    @Column(name = "hall_id")
-//    private Long hallId;
-
     @Column(name = "seats_number")
     private Integer seatsNumber;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "sector", fetch = FetchType.LAZY)
+    private Set<Ticket> tickets = new HashSet<Ticket>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
+    }
 
     public String getName() {
         return name;
@@ -41,10 +58,6 @@ public class Sector {
         this.name = name;
     }
 
-//    public Long getHallId() {
-//        return hallId;
-//    }
-
     public Hall getHall() {
         return hall;
     }
@@ -52,10 +65,6 @@ public class Sector {
     public void setHall(Hall hall) {
         this.hall = hall;
     }
-
-//    public void setHallId(Long hallId) {
-//        this.hallId = hallId;
-//    }
 
     public Integer getSeatsNumber() {
         return seatsNumber;

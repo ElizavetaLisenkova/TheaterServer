@@ -17,8 +17,8 @@ public class Actor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-//    @Column(name = "troup_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "troup_id", referencedColumnName = "id")
     private Troup troup;
 
     @Column(name = "full_name")

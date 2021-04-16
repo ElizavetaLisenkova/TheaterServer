@@ -32,6 +32,10 @@ public class Hall {
     @OneToMany(mappedBy = "hall", fetch = FetchType.LAZY)
     private Set<Sector> sectors = new HashSet<Sector>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "hall", fetch = FetchType.LAZY)
+    private Set<Performance> performances = new HashSet<Performance>();
+
     public String getName() {
         return name;
     }

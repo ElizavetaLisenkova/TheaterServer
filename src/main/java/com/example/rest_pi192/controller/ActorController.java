@@ -2,30 +2,24 @@ package com.example.rest_pi192.controller;
 
 
 import com.example.rest_pi192.entity.Actor;
-import com.example.rest_pi192.entity.Troup;
 import com.example.rest_pi192.exception.ActorNotFoundException;
 import com.example.rest_pi192.service.ActorService;
-import com.example.rest_pi192.service.TroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-
 
 @RestController
 @RequestMapping(value = "actor")
 public class ActorController {
 
     private final ActorService actorService;
-    private final TroupService troupService;
 
     @Autowired
-    public ActorController(ActorService actorService, TroupService troupService){
+    public ActorController(ActorService actorService){
         this.actorService = actorService;
-        this.troupService = troupService;
     }
 
 

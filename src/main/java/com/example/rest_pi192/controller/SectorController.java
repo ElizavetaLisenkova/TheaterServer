@@ -27,7 +27,6 @@ public class SectorController {
         this.hallService = hallService;
     }
 
-
     @GetMapping
     public ResponseEntity<List<Sector>> findAll() {
         final List<Sector> sectorList = sectorService.findAll();

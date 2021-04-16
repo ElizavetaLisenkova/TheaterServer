@@ -6,11 +6,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 
-
 @Entity
 @Data
 @NoArgsConstructor
 public class Ticket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -18,14 +18,19 @@ public class Ticket {
     @Column(name = "price")
     private Double price;
 
-    @Column(name = "performance_id")
-    private String performanceId;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "performance_id", referencedColumnName = "id")
+    private Performance performance;
 
-    @Column(name = "sector_id")
-    private String sectorId;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "sector_id", referencedColumnName = "id")
+    private Sector sector;
 
     @Column(name = "place")
     private Integer place;
+
+    @Column(name = "availability")
+    private Boolean availability;
 
     public Double getPrice() {
         return price;
@@ -35,21 +40,14 @@ public class Ticket {
         this.price = price;
     }
 
-    public String getPerformanceId() {
-        return performanceId;
+    public Sector getSector() {
+        return sector;
     }
 
-    public void setPerformanceId(String performanceId) {
-        this.performanceId = performanceId;
+    public void setSector(Sector sector) {
+        this.sector = sector;
     }
 
-    public String getSectorId() {
-        return sectorId;
-    }
-
-    public void setSectorId(String sectorId) {
-        this.sectorId = sectorId;
-    }
 
     public Integer getPlace() {
         return place;
@@ -67,8 +65,14 @@ public class Ticket {
         this.availability = availability;
     }
 
-    @Column(name = "availability")
-    private Boolean availability;
+    public Performance getPerformance() {
+        return performance;
+    }
+
+    public void setPerformance(Performance performance) {
+        this.performance = performance;
+    }
+
 
 
 }

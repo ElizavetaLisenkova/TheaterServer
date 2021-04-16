@@ -1,8 +1,9 @@
 -- INSERT INTO hall
--- VALUES (1, 'Большой', 500),
+-- VALUES
+-- (1, 'Большой', 500),
 --       (2, 'Малый', 150);
+
 --
--- --
 
 -- INSERT INTO troup
 -- VALUES (1, 'Балет'),
@@ -37,4 +38,4 @@
 -- INSERT INTO ticket
 -- VALUES (1, 1800, 1, 2, 1, true),
 --        (2, 1800, 1, 2, 2, true);
---
+

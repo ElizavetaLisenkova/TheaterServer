@@ -50,10 +50,8 @@ public class HallController {
 
     @DeleteMapping(value = "/{id}")
     public void deleteById(@PathVariable(name = "id") Long id){
-        System.out.println("-----------------------Я ЗАШЕЛ В ДЕЛИТ-------------------------------------");
         hallService.deleteById(id);
     }
-
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Hall> updateHall(@PathVariable(value = "id") Long id, @RequestBody Hall newHall) {
