@@ -21,15 +21,6 @@ CREATE TABLE IF NOT EXISTS hall
     total_places INT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS sector
-(
-    id    SERIAL PRIMARY KEY ,
-    name VARCHAR(200) NOT NULL,
-    hall_id SERIAL NOT NULL,
-    seats_number INT NOT NULL,
-    FOREIGN KEY (hall_id) REFERENCES hall (id) ON DELETE CASCADE
-
-);
 
 CREATE TABLE IF NOT EXISTS performance
 (
@@ -49,11 +40,9 @@ CREATE TABLE IF NOT EXISTS ticket
     id    SERIAL PRIMARY KEY ,
     price NUMERIC NOT NULL,
     performance_id INT NOT NULL,
-    sector_id INT NOT NULL,
     place INT,
     availability BOOLEAN,
-    FOREIGN KEY (performance_id)  REFERENCES performance (id) ON DELETE CASCADE ,
-    FOREIGN KEY (sector_id)  REFERENCES sector (id) ON DELETE cascade
+    FOREIGN KEY (performance_id)  REFERENCES performance (id) ON DELETE CASCADE
 );
 
 

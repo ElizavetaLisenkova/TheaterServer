@@ -22,10 +22,6 @@ public class Ticket {
     @JoinColumn(name = "performance_id", referencedColumnName = "id")
     private Performance performance;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "sector_id", referencedColumnName = "id")
-    private Sector sector;
-
     @Column(name = "place")
     private Integer place;
 
@@ -38,14 +34,6 @@ public class Ticket {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public Sector getSector() {
-        return sector;
-    }
-
-    public void setSector(Sector sector) {
-        this.sector = sector;
     }
 
 

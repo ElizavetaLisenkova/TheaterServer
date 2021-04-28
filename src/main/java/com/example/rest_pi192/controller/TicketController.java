@@ -63,7 +63,6 @@ public class TicketController {
                 .orElseThrow(() -> new TicketNotFoundException(id));
 
         ticket.setPrice(newTicket.getPrice());
-        ticket.setSector(newTicket.getSector());
         ticket.setPerformance(newTicket.getPerformance());
         ticket.setPlace(newTicket.getPlace());
         ticket.setAvailability(newTicket.getAvailability());

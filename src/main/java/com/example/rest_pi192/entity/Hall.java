@@ -28,9 +28,6 @@ public class Hall {
     @Column(name = "total_places")
     private Integer totalPlaces;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "hall", fetch = FetchType.LAZY)
-    private Set<Sector> sectors = new HashSet<Sector>();
 
     @JsonIgnore
     @OneToMany(mappedBy = "hall", fetch = FetchType.LAZY)
