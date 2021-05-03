@@ -4,14 +4,14 @@ package com.example.rest_pi192.controller;
 import com.example.rest_pi192.entity.Hall;
 import com.example.rest_pi192.exception.HallNotFoundException;
 import com.example.rest_pi192.service.HallService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-
+/**
+ * Класс-контроллер, все методы аналогичны классу ActorController и в нем описаны
+ */
 @RestController
 @RequestMapping(value = "hall")
 public class HallController {

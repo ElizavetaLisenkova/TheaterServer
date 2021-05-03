@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+/**
+ * Класс-контроллер, все методы аналогичны классу ActorController и в нем описаны
+ */
 @RestController
 @RequestMapping(value = "performance")
 public class PerformanceController {
