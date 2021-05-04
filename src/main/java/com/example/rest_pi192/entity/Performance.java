@@ -64,7 +64,7 @@ public class Performance {
     private String status;
 
     /**
-     * Свзять с билетами
+     * Связь с билетами
      */
     @JsonIgnore
     @OneToMany(mappedBy = "performance", fetch = FetchType.LAZY)

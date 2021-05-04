@@ -4,16 +4,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Главный класс, который запускает сервер
+ * Главный класс, который запускает сервер (Точка входа в программу)
  */
 @SpringBootApplication
-public class RestPi192Application {
+public class RunServerApplication {
 
 	/**
 	 * Главный метод, который запускает сервер
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(RestPi192Application.class, args);
+		SpringApplication.run(RunServerApplication.class, args);
 	}
 
 }
